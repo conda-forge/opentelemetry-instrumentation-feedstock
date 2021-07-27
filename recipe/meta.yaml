@@ -23,7 +23,8 @@ requirements:
     - pip
     - python >=3.5
   run:
-    - opentelemetry-api =={{ version }}
+    # - opentelemetry-api =={{ version }}
+    - opentelemetry-api ==1.4.0
     - python >=3.5
     - wrapt >=1.0.0,<2.0.0
 
