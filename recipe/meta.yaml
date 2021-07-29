@@ -1,17 +1,28 @@
 {% set name = "opentelemetry-instrumentation" %}
-{% set version = "0.23b0" %}
-
+{% set version = "0.23b2" %}
 
 # Common to all opentelemetry python libraries
 {% set vsegments = version.split('.') %}
 # not all packages in opentelemetry are at the most recent version
 {% set preoffset = 19 %}
+{% set patchoffset = 1 %} 
+{% set is_rel = (vsegments[0] == '1') %}
 {% set canonical_minor_pre = (vsegments[1].split('b')[0] | int) - (preoffset | int) %}
 {% set canonical_minor_rel = (vsegments[1] | int) %}
+
+{% set canonical_patch_pre = (vsegments[1].split('b')[1] | int) if (not is_rel) else -1 %}
+{% set canonical_patch_rel = (vsegments[2] | int) if (is_rel) else -1 %}
+{% set canonical_patch = canonical_patch_rel if (is_rel) else (canonical_patch_pre) %}
+# Since we have the case where
+# 1.4.1 -> 0.23b2, 1.4.0 -> 0.23b0, we assume that there is an offset when non-zero?
+{% set patchoffset = 0 if (canonical_patch == 0) else patchoffset %}
+{% set canonical_patch = canonical_patch_rel if (is_rel) else (canonical_patch_pre - patchoffset) %}
+
 # determine the canonical minor version of the 1.x opentelemetry associated with this package
-{% set canonical_minor = canonical_minor_rel if (vsegments[0] == '1') else canonical_minor_pre %}
-{% set vpre = '0.{}b0'.format(canonical_minor + preoffset ) %}
-{% set vrel = '1.{}'.format(canonical_minor) %}
+{% set canonical_minor = canonical_minor_rel if is_rel else canonical_minor_pre %}
+{% set vpre = '0.{}b{}'.format(canonical_minor + preoffset, canonical_patch + patchoffset) %}
+{% set vrel = '1.{}.{}'.format(canonical_minor, canonical_patch) %}
+
 
 package:
   name: {{ name|lower }}
@@ -19,7 +30,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/opentelemetry-instrumentation-{{ version }}.tar.gz
-  sha256: 882de6cf8588767bb0203e837c3de797bdbac76987c4fd620202af23bf356796
+  sha256: 03f47469f47970e96d69ae65a231c3e3510b160ac19c90b09ab33893876e2b89
 
 build:
   number: 0
