@@ -1,5 +1,5 @@
 {% set name = "opentelemetry-instrumentation" %}
-{% set version = "0.32b0" %}
+{% set version = "0.33b0" %}
 
 # Common to all opentelemetry python libraries
 {% set vsegments = version.split('.') %}
@@ -30,7 +30,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/opentelemetry-instrumentation-{{ version }}.tar.gz
-  sha256: eb8528c85640206ca5c507d7ead2e8a1acb83d8ed413cf68dff689589c9b834e
+  sha256: 763eb288b1c0fff9f6baa5494752cc9997f1f03ae3b03dd1fe0d667b1a04eecf
 
 build:
   number: 0
@@ -48,6 +48,7 @@ requirements:
     - opentelemetry-api ~=1.4
     - python >=3.5
     - wrapt <2.0.0,>=1.0.0
+    # - setuptools >=16.0
     # - setuptools >=16.0
     # - setuptools >=16.0
     # - setuptools >=16.0
