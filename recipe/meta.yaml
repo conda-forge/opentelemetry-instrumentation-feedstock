@@ -30,8 +30,8 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/opentelemetry_instrumentation-{{ version }}.tar.gz
-  # Pre-Release https://pypi.org/project/opentelemetry-instrumentation/#history
-  sha256: 214382ba10dfd29d4e24898a4c7ef18b7368178a6277a1aec95cdb75cabf4612
+  # Source is Pre-Release https://pypi.org/project/opentelemetry-instrumentation/#history
+  sha256: 6a653a1fed0f76eea32885321d77c750483e987eeefa4cbf219fc83559543198
 
 build:
   number: 0
