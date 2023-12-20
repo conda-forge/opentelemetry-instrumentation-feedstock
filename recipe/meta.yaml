@@ -38,7 +38,7 @@ build:
   entry_points:
     - opentelemetry-instrument = opentelemetry.instrumentation.auto_instrumentation:run
     - opentelemetry-bootstrap = opentelemetry.instrumentation.bootstrap:run
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
@@ -47,7 +47,7 @@ requirements:
     - hatchling
   run:
     - python >=3.7
-    - opentelemetry-api ~=1.4
+    - opentelemetry-api >=1.4,<2.0
     - setuptools >=16.0
     - wrapt <2.0.0,>=1.0.0
 
