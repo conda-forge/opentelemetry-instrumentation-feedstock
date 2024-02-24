@@ -72,3 +72,5 @@ extra:
     - rxm7706
     - twoodwark
     - mariusvniekerk
+    - conda-forge/opentelemetry-api
+
