@@ -1,5 +1,6 @@
 {% set name = "opentelemetry-instrumentation" %}
 {% set version = "0.49b0" %}
+{% set python_min = python_min|default("0.1a0") %}
 
 # Common to all opentelemetry python libraries
 {% set vsegments = version.split('.') %}
