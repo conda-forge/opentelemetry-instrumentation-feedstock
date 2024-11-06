@@ -42,16 +42,16 @@ build:
 
 requirements:
   host:
+    - python {{ python_min }}
     - pip
-    - python >=3.7
     - hatchling
   run:
-    - python >=3.7
+    - python >={{ python_min }}
     - opentelemetry-api ~=1.4
     - setuptools >=16.0
     - wrapt <2.0.0,>=1.0.0
-    # - packaging >=18.0
-    # - opentelemetry-semantic-conventions ==0.49b0
+    - packaging >=18.0
+    - opentelemetry-semantic-conventions ==0.49b0
 
 test:
   imports:
@@ -61,6 +61,7 @@ test:
     - opentelemetry-instrument --help
     - opentelemetry-bootstrap --help
   requires:
+    - python ={{ python_min }}
     - pip
 
 about:
