@@ -30,7 +30,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/opentelemetry_instrumentation-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/opentelemetry_instrumentation-{{ version }}.tar.gz
   sha256: 8cf00cc8d9d479e4b72adb9bd267ec544308c602b7188598db5a687e77b298e2
 
 build:
@@ -62,7 +62,7 @@ test:
     - opentelemetry-instrument --help
     - opentelemetry-bootstrap --help
   requires:
-    - python ={{ python_min }}
+    - python {{ python_min }}
     - pip
 
 about:
