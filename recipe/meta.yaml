@@ -1,6 +1,6 @@
 {% set name = "opentelemetry-instrumentation" %}
-{% set version = "0.49b1" %}
-{% set python_min = python_min|default("3.8") %}
+{% set version = "0.49b2" %}
+{% set python_min = python_min|default("3.9") %}
 
 # Common to all opentelemetry python libraries
 {% set vsegments = version.split('.') %}
@@ -30,8 +30,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/opentelemetry_instrumentation-{{ version }}.tar.gz
-  sha256: 2d0e41181b7957ba061bb436b969ad90545ac3eba65f290830009b4264d2824e
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/opentelemetry_instrumentation-{{ version }}.tar.gz
+  sha256: 8cf00cc8d9d479e4b72adb9bd267ec544308c602b7188598db5a687e77b298e2
 
 build:
   number: 0
@@ -52,7 +52,7 @@ requirements:
     - setuptools >=16.0
     - wrapt <2.0.0,>=1.0.0
     - packaging >=18.0
-    - opentelemetry-semantic-conventions ==0.49b1
+    - opentelemetry-semantic-conventions ==0.49b2
 
 test:
   imports:
@@ -62,7 +62,7 @@ test:
     - opentelemetry-instrument --help
     - opentelemetry-bootstrap --help
   requires:
-    - python ={{ python_min }}
+    - python {{ python_min }}
     - pip
 
 about:
