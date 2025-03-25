@@ -52,7 +52,7 @@ requirements:
     - setuptools >=16.0
     - wrapt <2.0.0,>=1.0.0
     - packaging >=18.0
-    - opentelemetry-semantic-conventions ==0.52b0
+    - opentelemetry-semantic-conventions ==0.52b1
 
 test:
   imports:
