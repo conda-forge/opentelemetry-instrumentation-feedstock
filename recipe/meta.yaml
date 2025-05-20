@@ -34,7 +34,7 @@ source:
   sha256: 7658bf2ff914b02f246ec14779b66671508125c0e4227361e56b5ebf6cef0aec
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - opentelemetry-instrument = opentelemetry.instrumentation.auto_instrumentation:run
