@@ -1,5 +1,5 @@
 {% set name = "opentelemetry-instrumentation" %}
-{% set version = "0.62b1" %}
+{% set version = "0.63b0" %}
 {% set python_min = python_min|default("3.9") %}
 
 # Common to all opentelemetry python libraries
@@ -31,7 +31,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/opentelemetry_instrumentation-{{ version }}.tar.gz
-  sha256: 90e92a905ba4f84db06ac3aec96701df6c079b2d66e9379f8739f0a1bdcc7f45
+  sha256: 80a339ef030a8d0fd1962375a9801dd31954e5063d74c00bc3d4e6581f43bab1
 
 build:
   number: 0
@@ -52,7 +52,7 @@ requirements:
     - setuptools >=16.0
     - wrapt <3.0.0,>=1.0.0
     - packaging >=18.0
-    - opentelemetry-semantic-conventions ==0.62b1
+    - opentelemetry-semantic-conventions ==0.63b0
 
 test:
   imports:
